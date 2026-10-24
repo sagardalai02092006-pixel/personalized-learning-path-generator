@@ -70,9 +70,7 @@ pip install -r requirements.txt
 
 ```bash
 python app.py
-```<img width="1920" height="1080" alt="Screenshot (64)" src="https://github.com/user-attachments/assets/177a0d3d-e1dc-48a4-bce3-03024a68e6b8" />
-<img width="1920" height="1080" alt="Screenshot (65)" src="https://github.com/user-attachments/assets/c80f5a20-da8f-4bae-a29b-7fcc1055afae" />
-
+```
 
 
 Open the local address shown in the terminal (normally `http://127.0.0.1:5000`).
