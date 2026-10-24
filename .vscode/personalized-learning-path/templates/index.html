@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Personalized Learning Path Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">DSA PROJECT · GRAPH ALGORITHMS</p>
+      <h1>Personalized Learning Path Generator</h1>
+      <p class="subtitle">Learn topics in the right order using prerequisites, topological sorting, and dynamic programming.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel controls">
+      <div>
+        <label for="target">What do you want to learn?</label>
+        <select id="target">
+          {% for topic in topics %}
+          <option value="{{ topic.name }}">{{ topic.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div>
+        <p class="field-label">Topics you have already completed</p>
+        <div class="completed-grid" id="completed-list">
+          {% for topic in topics %}
+          <label class="check-option">
+            <input type="checkbox" value="{{ topic.name }}">
+            <span>{{ topic.name }}</span>
+          </label>
+          {% endfor %}
+        </div>
+      </div>
+      <button id="generate">Generate my learning path</button>
+      <p id="error" class="error" role="alert"></p>
+    </section>
+
+    <section class="stats" id="stats" aria-live="polite">
+      <div class="stat-card"><span>Topics remaining</span><strong id="remaining">—</strong></div>
+      <div class="stat-card"><span>Study hours remaining</span><strong id="hours">—</strong></div>
+      <div class="stat-card"><span>Critical prerequisite chain</span><strong id="critical">—</strong></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow dark">YOUR PLAN</p>
+          <h2 id="path-title">Your learning path will appear here</h2>
+        </div>
+        <span class="pill" id="topic-count">Ready to generate</span>
+      </div>
+      <div id="path" class="path-list">
+        <div class="empty-state">
+          <div class="empty-icon">↗</div>
+          <h3>Start with a target topic</h3>
+          <p>Select a topic, mark any topics you have finished, and generate a sequence that respects prerequisites.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel explanation">
+      <h2>DSA concepts behind the app</h2>
+      <div class="concept-grid">
+        <article><h3>DAG</h3><p>Topics are vertices and prerequisite relationships are directed edges. The graph should contain no cycles.</p></article>
+        <article><h3>Topological sort</h3><p>Kahn’s algorithm places prerequisites before the topics that depend on them in <code>O(V + E)</code> time.</p></article>
+        <article><h3>Dynamic programming</h3><p>DP calculates the longest prerequisite-chain duration by reusing previously computed results for each topic.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>Built as an educational Data Structures and Algorithms project.</footer>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
