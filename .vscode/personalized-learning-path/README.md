@@ -74,7 +74,9 @@ python app.py
 
 
 Open the local address shown in the terminal (normally `http://127.0.0.1:5000`).
-### images 
+### Image
+
+
 <img width="1920" height="1080" alt="Screenshot (64)" src="https://github.com/user-attachments/assets/60f7b850-56c1-47e0-b528-da5f8ea972a5" />
 <img width="1920" height="1080" alt="Screenshot (65)" src="https://github.com/user-attachments/assets/8501cb61-0ab5-453b-ab8b-7ada83e2d92c" />
 
